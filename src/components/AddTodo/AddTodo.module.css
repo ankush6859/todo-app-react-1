@@ -1,0 +1,10 @@
+.input {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  font-size: large;
+  width: -webkit-fill-available;
+}
+.addTodo_card {
+  padding: 0.5rem;
+}
