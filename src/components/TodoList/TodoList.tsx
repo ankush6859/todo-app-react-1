@@ -6,6 +6,7 @@ import { Todo } from '../../TodoSlice';
 import Card from '../UI/Card';
 import styles from './TodoList.module.css';
 import { useState } from 'react';
+import ButtonGroup from '../ButtonGroup/ButtonGroup';
 
 const TodoList = () => {
   const [filter, setFilter] = useState(0);
@@ -40,6 +41,11 @@ const TodoList = () => {
         <div className={styles.total_count}>
           {`${filteredTodo.length} tasks remaining`}
         </div>
+        <ButtonGroup
+          buttonList={buttonList}
+          filter={filter}
+          setFilter={setFilter}
+        />
       </div>
     </Card>
   );
