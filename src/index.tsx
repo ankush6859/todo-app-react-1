@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './services/store/store';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import App from './App';
 import './index.css';
 
@@ -15,3 +16,5 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
