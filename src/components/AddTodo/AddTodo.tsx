@@ -20,21 +20,38 @@ const AddTodo = () => {
       inputRef.current!.value = '';
     }
   };
+  const addTodoButtonHandler = () => {
+    if ((inputRef.current?.value.trim() as string).length > 0) {
+      dispatch(
+        addTodo({
+          id: String((Math.random() * 100).toFixed(0)),
+          value: inputRef.current?.value as string,
+          completed: false,
+        })
+      );
+      inputRef.current!.value = '';
+    }
+  };
 
   return (
     <>
       <div className={styles.top_heading}>
         <h1>TODO APP</h1>
       </div>
-      <Card className={styles.addTodo_card}>
-        <input
-          className={styles.input}
-          type="text"
-          ref={inputRef}
-          onKeyDown={keyPressHandler}
-          placeholder="Create a New Todo"
-        />
-      </Card>
+      <div className={styles.input_wrapper}>
+        <Card className={styles.addTodo_card}>
+          <input
+            className={styles.input}
+            type="text"
+            ref={inputRef}
+            onKeyDown={keyPressHandler}
+            placeholder="Create a New Todo"
+          />
+        </Card>
+        <button className={styles.button} onClick={addTodoButtonHandler}>
+          Add{' '}
+        </button>
+      </div>
     </>
   );
 };

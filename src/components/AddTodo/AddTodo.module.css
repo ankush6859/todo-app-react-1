@@ -21,6 +21,7 @@
 }
 .addTodo_card {
   box-shadow: none;
+  width: 80%;
 }
 .top_heading {
   text-align: center;
@@ -39,13 +40,43 @@
   margin: 0;
 }
 
+.input_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: 20%;
+  color: white;
+  background: #820082;
+  border: 1px solid #820082;
+  font-size: 1.4rem;
+  font-weight: bolder;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: opacity 0.2s ease-out;
+}
+.button:hover {
+  opacity: 0.9;
+}
+
 @media only screen and (max-width: 768px) {
   .top_heading {
     font-size: 1.5rem;
+  }
+  .button {
+    font-size: 1.2;
   }
 }
 @media only screen and (max-width: 468px) {
   .top_heading {
     font-size: 1.3rem;
+  }
+  .button {
+    font-size: 1rem;
   }
 }
