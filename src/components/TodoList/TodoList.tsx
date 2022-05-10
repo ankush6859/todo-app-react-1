@@ -1,12 +1,13 @@
 import React from 'react';
-import { RootState } from '../../app/store';
-import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../services/store/store';
+import { useAppSelector } from '../../services/hooks/hooks';
 import TodoItem from '../TodoItem/TodoItem';
-import { Todo } from '../../TodoSlice';
+import Todo from '../../interfaces/Todo';
 import Card from '../UI/Card';
 import styles from './TodoList.module.css';
 import { useState } from 'react';
 import ButtonGroup from '../ButtonGroup/ButtonGroup';
+import notFound from '../../assets/empty.svg';
 
 const TodoList = () => {
   const [filter, setFilter] = useState(0);
@@ -16,9 +17,20 @@ const TodoList = () => {
   let filteredTodo = todos;
   if (filteredTodo.length === 0) {
     return (
-      <Card className={styles.not_found}>
-        <h3>Nothing found for the day!! </h3>
-      </Card>
+      <>
+        {/* <Card className={styles.not_found}>
+          <h3>Nothing found for the day!! </h3>
+        </Card> */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '1rem',
+          }}
+        >
+          <img src={notFound} alt="Not Found" width="80%" />
+        </div>
+      </>
     );
   }
 

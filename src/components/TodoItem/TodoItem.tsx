@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from '../../app/hooks';
-import { changeTodoStatus, deleteTodo, Todo } from '../../TodoSlice';
+import { useAppDispatch } from '../../services/hooks/hooks';
+import {
+  changeTodoStatus,
+  deleteTodo,
+} from '../../services/reduxSlice/TodoSlice';
+import Todo from '../../interfaces/Todo';
 import styles from './TodoItem.module.css';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';

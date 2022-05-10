@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.css';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 import Brightness5Icon from '@mui/icons-material/Brightness5';
 import AddTodo from './components/AddTodo/AddTodo';
@@ -13,14 +13,14 @@ function App() {
   };
   return (
     <div className="App" style={{ background: mode ? '#1a202c' : '#fff' }}>
-      <div className="mode">
+      <div className={styles.mode}>
         {mode ? (
           <ModeNightIcon onClick={modeHandler} sx={{ color: '#fff' }} />
         ) : (
           <Brightness5Icon onClick={modeHandler} sx={{ color: '#000' }} />
         )}
       </div>
-      <div className="main">
+      <div className={styles.main}>
         <AddTodo />
         <TodoList />
       </div>
