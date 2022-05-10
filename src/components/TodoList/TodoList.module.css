@@ -22,3 +22,16 @@
 .list_wrapper div:first-child {
   border-radius: 8px 8px 0 0;
 }
+@media only screen and (max-width: 480px) {
+  .navigation {
+    width: 97%;
+  }
+  .total_count {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 359px) {
+  .total_count {
+    font-size: 12px;
+  }
+}

@@ -14,3 +14,16 @@
   background-color: #820082 !important;
   color: #fff !important;
 }
+
+@media only screen and (max-width: 480px) {
+  .button_wrapper button {
+    padding: 5px 12px;
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 359px) {
+  .button_wrapper button {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+}
