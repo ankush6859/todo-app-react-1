@@ -1,0 +1,16 @@
+.button_wrapper button {
+  background: white;
+  color: #820082;
+  border: 1px solid #820082;
+  font-size: 1rem;
+  padding: 5px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: all 0.3s;
+}
+.button_wrapper > button:hover,
+.active {
+  background-color: #820082 !important;
+  color: #fff !important;
+}

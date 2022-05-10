@@ -1,6 +1,13 @@
-.App {
+.main {
   width: 40%;
   margin: auto;
   height: 100vh;
-  margin-top: 10vh;
+  padding-top: 10vh;
+}
+.mode {
+  cursor: pointer;
+  padding: 1rem;
+}
+.mode :only-child {
+  float: right;
 }
