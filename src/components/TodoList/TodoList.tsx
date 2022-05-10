@@ -31,7 +31,7 @@ const TodoList = () => {
   }
   return (
     <Card style={{ marginTop: '1rem' }}>
-      <div>
+      <div className={styles.list_wrapper}>
         {filteredTodo &&
           filteredTodo.map((todo: Todo) => (
             <TodoItem todo={todo} key={todo.id} />

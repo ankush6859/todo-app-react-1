@@ -19,3 +19,6 @@
   align-items: center;
   padding: 0.5rem 0;
 }
+.list_wrapper div:first-child {
+  border-radius: 8px 8px 0 0;
+}

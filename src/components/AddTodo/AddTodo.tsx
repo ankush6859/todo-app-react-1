@@ -22,15 +22,20 @@ const AddTodo = () => {
   };
 
   return (
-    <Card className={styles.addTodo_card}>
-      <input
-        className={styles.input}
-        type="text"
-        ref={inputRef}
-        onKeyDown={keyPressHandler}
-        placeholder="Create a New Todo"
-      />
-    </Card>
+    <>
+      <div className={styles.top_heading}>
+        <h1>TODO APP</h1>
+      </div>
+      <Card className={styles.addTodo_card}>
+        <input
+          className={styles.input}
+          type="text"
+          ref={inputRef}
+          onKeyDown={keyPressHandler}
+          placeholder="Create a New Todo"
+        />
+      </Card>
+    </>
   );
 };
 
