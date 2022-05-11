@@ -3,12 +3,14 @@ import { useAppDispatch } from '../../services/hooks/hooks';
 import {
   changeTodoStatus,
   deleteTodo,
+  updateTodo,
 } from '../../services/reduxSlice/TodoSlice';
 import Todo from '../../interfaces/Todo';
 import styles from './TodoItem.module.css';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CloseIcon from '@mui/icons-material/Close';
+import { Tooltip } from '@mui/material';
 
 interface TodoItemProps {
   todo: Todo;
@@ -35,16 +37,6 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }: TodoItemProps) => {
             ? { textDecoration: 'line-through', color: '#777' }
             : {}
         }
-        // onChange={(e) => {
-        //   dispatch(
-        //     updateTodo({
-        //       id: todo.id,
-        //       value: e.currentTarget.textContent as string,
-        //       completed: todo.completed,
-        //     })
-        //   );
-        // }}
-        // contentEditable="true"
       >
         <div className={styles.left}>
           <span
@@ -60,7 +52,23 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }: TodoItemProps) => {
               />
             )}
           </span>
-          <span>{todo.value}</span>
+          <Tooltip title={'Click to edit the todo'} arrow>
+            <span
+              className={styles.noFocus}
+              onBlur={(e) => {
+                dispatch(
+                  updateTodo({
+                    id: todo.id,
+                    value: e.currentTarget.textContent as string,
+                    completed: todo.completed,
+                  })
+                );
+              }}
+              contentEditable="true"
+            >
+              {todo.value}
+            </span>
+          </Tooltip>
         </div>
         {showDeleteButton && (
           <div
