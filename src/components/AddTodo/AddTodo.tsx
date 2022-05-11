@@ -3,13 +3,18 @@ import { useAppDispatch } from '../../services/hooks/hooks';
 import { addTodo } from '../../services/reduxSlice/TodoSlice';
 import Card from '../UI/Card';
 import styles from './AddTodo.module.css';
+import { useTranslation } from 'react-i18next';
 
 const AddTodo = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const keyPressHandler = (event: React.KeyboardEvent) => {
-    if (event.code === 'Enter') {
+    if (
+      event.code === 'Enter' &&
+      (inputRef.current?.value.trim() as string).length > 0
+    ) {
       dispatch(
         addTodo({
           id: String((Math.random() * 100).toFixed(0)),
@@ -36,7 +41,7 @@ const AddTodo = () => {
   return (
     <>
       <div className={styles.top_heading}>
-        <h1>TODO APP</h1>
+        <h1>{t('title')}</h1>
       </div>
       <div className={styles.input_wrapper}>
         <Card className={styles.addTodo_card}>
@@ -45,11 +50,11 @@ const AddTodo = () => {
             type="text"
             ref={inputRef}
             onKeyDown={keyPressHandler}
-            placeholder="Create a New Todo"
+            placeholder={t('input_text')}
           />
         </Card>
         <button className={styles.button} onClick={addTodoButtonHandler}>
-          Add{' '}
+          {t('add_button')}
         </button>
       </div>
     </>

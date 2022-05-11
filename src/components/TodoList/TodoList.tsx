@@ -8,11 +8,14 @@ import styles from './TodoList.module.css';
 import { useState } from 'react';
 import ButtonGroup from '../ButtonGroup/ButtonGroup';
 import notFound from '../../assets/empty.svg';
+import { useTranslation } from 'react-i18next';
 
 const TodoList = () => {
+  const { t, i18n } = useTranslation();
   const [filter, setFilter] = useState(0);
-  const buttonList = ['All', 'Active', 'Completed'];
-
+  const buttonList: Array<string> = i18n.t('filter_button_array', {
+    returnObjects: true,
+  });
   const todos = useAppSelector((state: RootState) => state.todos);
   let filteredTodo = todos;
   if (filteredTodo.length === 0) {
@@ -51,7 +54,7 @@ const TodoList = () => {
       </div>
       <div className={styles.navigation}>
         <div className={styles.total_count}>
-          {`${filteredTodo.length} tasks remaining`}
+          {t('task_remaining', { count: filteredTodo.length })}
         </div>
         <ButtonGroup
           buttonList={buttonList}

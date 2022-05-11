@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from './services/store/store';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import App from './App';
+import './config/i18n';
 import './index.css';
 
 const container = document.getElementById('root')!;
